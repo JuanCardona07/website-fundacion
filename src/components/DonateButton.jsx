@@ -8,7 +8,7 @@ const DonateButton = () => {
         className='donate-button'
         aria-label='Donar a la fundación'
         >
-            <span className='pulse-effect'>❤️🙏</span>Donar ahora 
+            <span className='pulse-effect'>❤️🙏</span>Donar ahora! 
         </a>
     )
 }
