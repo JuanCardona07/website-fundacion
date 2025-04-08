@@ -20,7 +20,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #5a2d82; 
-  background: linear-gradient(135deg, #E396DF 0%, #A57CE8 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.7) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
