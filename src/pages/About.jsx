@@ -9,7 +9,6 @@ const About = () => {
       </header>
 
       <section className="fcma-content">
-        {/* Sección Misión */}
         <div className="mission-vision-card">
           <h2 className="section-title">
             <span className="icon">📌</span> Misión
@@ -20,10 +19,6 @@ const About = () => {
             artística, educación física, entre otros; buscando la inclusión, brindándoles 
             protección, mecanismos de prevención y aceleración de sus procesos cognitivos.
           </p>
-        </div>
-
-        <div className="fcma-divider">
-          <span>✻</span>
         </div>
 
         <div className="mission-vision-card">
