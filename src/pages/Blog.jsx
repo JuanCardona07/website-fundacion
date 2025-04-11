@@ -6,6 +6,7 @@ const Blog = () => {
     <div className="blog-container">
       <div className="blog-header">
         <h1>Blog Educativo</h1>
+        <p>Descubre nuestrar últimas noticias y recursos para la educación</p>
       </div>
       
       <div className="blog-image-container">

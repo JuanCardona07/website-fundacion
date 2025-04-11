@@ -20,7 +20,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #5a2d82; 
-  background: linear-gradient(135deg, #E396DF 0%, #A57CE8 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.7) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,14 +100,14 @@
 }
 
 .comments-header h2 {
-  color: #5a2d82;
+  color: #2b6cb0;
   font-size: 1.6rem;
   margin: 0;
   font-weight: 600;
 }
 
 .comment-count {
-  color: #5a2d82;
+  color: #2b6cb0;
   font-size: 0.9rem;
   background: rgba(165, 124, 232, 0.2);
   padding: 0.3rem 0.8rem;
@@ -129,7 +129,7 @@
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   padding: 1.5rem;
-  border-left: 4px solid #A57CE8;
+  border-left: 4px solid #3498db;
   transition: all 0.3s ease;
   animation: fadeIn 0.5s ease-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -148,18 +148,18 @@
 }
 
 .comment-header strong {
-  color: #5a2d82;
+  color: #3498db;
   font-weight: 600;
 }
 
 .comment-date {
-  color: #7e57a1;
+  color: #3498db;
   font-size: 0.8rem;
 }
 
 .comment-body p {
   margin: 0.5rem 0;
-  color: #4a3a5a;
+  color: #3498db;
   line-height: 1.6;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .form-footer button {
-  background: linear-gradient(135deg, #A57CE8 0%, #5a2d82 100%);
+  background: linear-gradient(135deg, #4a89dc 0%, #2b6cb0 100%);
   color: white;
   border: none;
   padding: 0.9rem 2rem;
@@ -231,9 +231,9 @@
 }
 
 .form-footer button:hover {
-  background: linear-gradient(135deg, #9a6ad8 0%, #4a2570 100%);
+  background: linear-gradient(135deg, #5d9cec 0%, #3a7bd5 100%); 
   transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(90, 45, 130, 0.3);
+  box-shadow: 0 5px 15px rgba(58, 123, 213, 0.4);
 }
 
 .comments-list::-webkit-scrollbar {

@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 2rem 1rem;
     color: #333;
+    font-size: 1.1rem;
   }
   
   .fcma-header {
@@ -12,7 +13,7 @@
   
   .fcma-header h1 {
     color: #2c3e50;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     margin-bottom: 0.5rem;
   }
   
@@ -33,7 +34,7 @@
   
   .section-title {
     color: #2980b9;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -41,20 +42,14 @@
   }
   
   .section-title .icon {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   
   .section-text {
     line-height: 1.7;
     color: #555;
     text-align: justify;
-  }
-  
-  .fcma-divider {
-    text-align: center;
-    margin: 2rem 0;
-    color: #3498db;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   
   .inspirational-banner {
@@ -68,6 +63,33 @@
   
   .inspirational-banner p {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-style: italic;
   }
+
+  .mission-vision-card {
+    padding: 2rem; 
+    margin-bottom: 2rem; 
+}
+
+.divider {
+    height: 5px; 
+}
+
+  @media (max-width: 768px) {
+    .fcma-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .about-fcma-container {
+        font-size: 1rem;
+    }
+    
+    .section-text {
+        font-size: 1.1rem;
+    }
+}
