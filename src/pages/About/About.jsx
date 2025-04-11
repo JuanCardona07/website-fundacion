@@ -1,19 +1,19 @@
-import '../styles/About.css';
+import styles from './About.module.css';
 
-const About = () => {
+export default function About(){
   return (
-    <div className="about-fcma-container">
-      <header className="fcma-header">
-        <h1>Acerca de FCMA</h1>
+    <div className={styles["about-fcma-container"]}>
+      <header className={styles["fcma-header"]}>
+        <h1 className={styles.title}>Acerca de FCMA</h1>
         <div className="divider"></div>
       </header>
 
-      <section className="fcma-content">
-        <div className="mission-vision-card">
-          <h2 className="section-title">
-            <span className="icon">📌</span> Misión
+      <section className={styles["fcma-content"]}>
+        <div className={styles["mission-vision-card"]}>
+          <h2 className={styles["section-title"]}>
+            <span className={styles["icon"]}>📌</span> Misión
           </h2>
-          <p className="section-text">
+          <p className={styles["section-text"]}>
             Comprometernos con el futuro de los niños y niñas de la vereda La Esmeralda, 
             a través de acciones pedagógicas en procesos educativos como lengua, matemáticas, 
             artística, educación física, entre otros; buscando la inclusión, brindándoles 
@@ -21,11 +21,11 @@ const About = () => {
           </p>
         </div>
 
-        <div className="mission-vision-card">
-          <h2 className="section-title">
-            <span className="icon">🔭</span> Visión
+        <div className={styles["mission-vision-card"]}>
+          <h2 className={styles["section-title"]}>
+            <span className={styles["icon"]}>🔭</span> Visión
           </h2>
-          <p className="section-text">
+          <p className={styles["section-text"]}>
             Buscamos ser reconocidos a nivel nacional e internacional, como una institución 
             que cuenta con estrategias aplicadas como iniciativa personalizada de estudiante 
             a estudiante, generando cambios y transformaciones en sus hábitos de estudio y 
@@ -38,5 +38,3 @@ const About = () => {
     </div>
   );
 };
-
-export default About;
