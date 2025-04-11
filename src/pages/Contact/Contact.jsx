@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '../styles/Contact.css';
+import styles from './Contact.module.css';
 
-const Contact = () => {
+export default function Contact(){
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,12 +24,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
+    <div className={styles["contact-container"]}>
       <h1>Contáctanos</h1>
-      <p className="contact-intro">Hablemos. No dudes en ponerte en contacto con nosotros mediante la información de contacto a continuación, o envíanos un mensaje mediante el formulario.</p>
+      <p className={styles["contact-intro"]}>Hablemos. No dudes en ponerte en contacto con nosotros mediante la información de contacto a continuación, o envíanos un mensaje mediante el formulario.</p>
 
-      <div className="contact-content">
-        <div className="contact-info">
+      <div className={styles["contact-content"]}>
+        <div className={styles["contact-info"]}>
           <h2>Ponte en contacto</h2>
           <address>
             <p>Vereda La Esmeralda</p>
@@ -41,10 +41,10 @@ const Contact = () => {
           </address>
         </div>
 
-        <div className="contact-form">
+        <div className={styles["contact-form"]}>
           <h2>Envíanos un mensaje</h2>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className={styles["form-group"]}>
               <label htmlFor="name">Nombre (obligatorio)</label>
               <input
                 type="text"
@@ -56,7 +56,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className={styles["form-group"]}>
               <label htmlFor="email">Correo electrónico (obligatorio)</label>
               <input
                 type="email"
@@ -68,7 +68,7 @@ const Contact = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className={styles["form-group"]}>
               <label htmlFor="message">Mensaje (obligatorio)</label>
               <textarea
                 id="message"
@@ -80,12 +80,10 @@ const Contact = () => {
               />
             </div>
 
-            <button type="submit" className="submit-button">Enviar mensaje</button>
+            <button type="submit" className={styles["submit-button"]}>Enviar mensaje</button>
           </form>
         </div>
       </div>
     </div>
   );
 };
-
-export default Contact;
