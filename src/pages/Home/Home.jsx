@@ -1,100 +1,104 @@
-import { useState, useRef } from 'react';
-import styles from './Home.module.css';
-import moment from 'moment';
+import { useState, useEffect } from "react";
+import styles from "./Home.module.css";
+import commentsData from "./comments.json";
 
-export default function Home(){
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+export default function Home() {
   const [comments, setComments] = useState([]);
-  const textareaRef = useRef(null);  
-  
-  const handleTextareaChange = (e) => {
-    setMessage(e.target.value);
-    e.target.style.height = 'auto';
-    e.target.style.height = `${e.target.scrollHeight}px`;
-  };
+  const [visibleComments, setVisibleComments] = useState(5);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
+  useEffect(() => {
+    const validatedComments = commentsData.map((comment) => ({
+      name: comment.name || "Anónimo",
+      message: comment.message || "No hay mensaje disponible",
+      date: comment.date || "Fecha no disponible",
+      position: comment.position || "Usuario",
+    }));
+    setComments(validatedComments);
+  }, []);
 
-    const newComment = {
-      name,
-      message,
-      date: moment().format('MMMM Do YYYY, h:mm:ss a')      
-    };
-
-    setComments([newComment, ...comments]);
-    setName('');
-    setMessage('');
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-    }
+  const getInitials = (name) => {
+    if (!name || name === "Anónimo") return "?";
+    const names = name.split(" ");
+    return names
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
   };
 
   return (
-    <div className={styles["home-container"]}>      
-      <h1 className={styles.title}>«Fe, Compromiso, Superación.
-           La Educación como meta hacia el Progreso.»</h1>
-      <div className={styles["video-container"]}>
-        <iframe
-          src="https://www.youtube.com/embed/p0VorBUqS9E"
-          title="Video del Centro"
-          allowFullScreen
-        ></iframe>
+    <div className={styles["home-container"]}>
+      <div className={styles["header-section"]}>
+        <h1 className={styles["main-title"]}>
+          «Fe, Compromiso, Superación. La Educación como meta hacia el
+          Progreso.»
+        </h1>
+        <p className={styles["fundation-description"]}>
+          Somos una fundación sin ánimo de lucro, dedicada a apoyar
+          académicamente a niños y jóvenes de la comunidad que se encuentren en
+          estado de vulnerabilidad.
+        </p>
       </div>
 
-
-      <div className={styles['comments-section']}>
-        <h2>Comentarios {`(${comments.length})`}</h2>
-        {/* <div className={styles["comments-header"]}>
-          <div className={styles["comment-count"]}>{comments.length} comentarios</div>
-        </div> */}
-
-        {/* <div className={styles["comment-input-container"]}>
-        </div> */}
-          <form onSubmit={handleSubmit} className={styles["comment-form"]}>
-            <textarea 
-              className={styles["comment-input"]}
-              ref={textareaRef}
-              placeholder="Escribe tu comentario..."
-              value={message}
-              onChange={handleTextareaChange}
-              required
-              rows="1"
-            />
-            <div className={styles["form-footer"]}>
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-              <button type="submit">Comentar</button>
-            </div>
-          </form>
-        
-        <div className={styles["comments-list"]}>
-          {comments.map((comment, index) => (
-            <div key={index} className={styles["comment-card"]}>
-              <div className={styles["comment-header"]}>
-              <div className={styles['user-pic']}/>
-                <strong>{comment.name}</strong>
-                <span className={styles["comment-date"]}>{comment.date}</span>
-              </div>
-              <div className={styles["comment-body"]}>
-                {comment.message.split('\n').map((line, i) => (
-                  <p key={i}>{line}</p>
-                ))}
-              </div>
-            </div>
-          ))}
+      <div className={styles["video-section"]}>
+        <h2 className={styles["video-title"]}>
+          Nuestra historia contada por nuestra directora
+        </h2>
+        <div className={styles["video-container"]}>
+          <iframe
+            src="https://www.youtube.com/embed/p0VorBUqS9E"
+            title="Video del Centro"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
-      {/* <div className={styles["comments-section"]}>
-        
-      </div> */}
+
+      <div className={styles["testimonials-section"]}>
+        <h2 className={styles["testimonials-title"]}>
+          Algunas opiniones sobre la fundación
+        </h2>
+
+        <div className={styles["comments-scroll-container"]}>
+          <div className={styles["comments-list"]}>
+            {comments.slice(0, visibleComments).map((comment, index) => (
+              <div
+                key={index}
+                className={`${styles["comment-card"]} ${
+                  index % 2 === 0
+                    ? styles["left-comment"]
+                    : styles["right-comment"]
+                }`}
+              >
+                <div className={styles["comment-header"]}>
+                  <div className={styles["user-pic"]}>
+                    {getInitials(comment.name)}
+                  </div>
+                  <div className={styles["comment-author"]}>
+                    <strong>{comment.name}</strong>
+                    <span className={styles["comment-date"]}>
+                      {comment.date}
+                    </span>
+                  </div>
+                </div>
+                <div className={styles["comment-body"]}>
+                  {comment.message.split("\n").map((line, i) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {comments.length > visibleComments && (
+          <button
+            className={styles["show-more"]}
+            onClick={() => setVisibleComments((prev) => prev + 5)}
+          >
+            Mostrar más opiniones
+          </button>
+        )}
+      </div>
     </div>
   );
-};
+}

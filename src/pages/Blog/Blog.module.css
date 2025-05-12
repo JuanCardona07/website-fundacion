@@ -1,101 +1,184 @@
 .blog-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
 }
 
 .blog-header {
   text-align: center;
-  margin-bottom: 2.5rem;
-  padding: 1.5rem 0;
-  position: relative;
+  margin-bottom: 2rem;
 }
 
-.title {
-  color: #5a2d82; 
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.blog-title {
+  color: #5a2d82;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
-  letter-spacing: -0.5px;  
 }
 
-.blog-header::after {
-  content: "";
-  position: absolute;
-  height: 4px;
-  width: 100px;
-  background: linear-gradient(90deg, #A57CE8, #5a2d82);
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  border-radius: 2px;
-}
-
-.blog-header p {
+.blog-subtitle {
   color: #4a3a5a;
   font-size: 1.2rem;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   line-height: 1.6;
 }
 
-.blog-image-container {
-  width: 100%;
-  margin: 2rem 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(90, 45, 130, 0.15);
+.title-divider {
+  height: 4px;
+  width: 120px;
+  background: linear-gradient(90deg, #77E0B5, #5a2d82);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.blog-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  background: white;
+  border: 1px solid #A57CE8;
+  color: #5a2d82;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.blog-main-image {
+.filter-button:hover {
+  background: #f5f1ff;
+}
+
+.filter-button.active {
+  background: #5a2d82;
+  color: white;
+  border-color: #5a2d82;
+}
+
+.blog-content {
+  margin-top: 1.5rem;
+}
+
+.blog-post {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-3px);
+}
+
+.image-container {
+  position: relative;
+  height: 250px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.image-container.expanded {
+  height: 350px;
+}
+
+.blog-image {
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.blog-image-container:hover {
-  box-shadow: 0 12px 25px rgba(90, 45, 130, 0.2);
-}
-
-.blog-image-container:hover .blog-main-image {
+.image-container:hover .blog-image {
   transform: scale(1.03);
 }
 
-.blog-image-container::before {
-  content: "";
-  position: absolute;
+.post-details {
+  padding: 1.5rem;
+}
+
+.post-title {
+  color: #5a2d82;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.post-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.fullscreen-overlay {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
 }
 
+.fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .blog-container {
     padding: 1.5rem;
   }
   
-  .blog-header h1 {
-    font-size: 2.2rem;
+  .blog-title {
+    font-size: 1.8rem;
   }
   
-  .blog-header p {
+  .blog-subtitle {
     font-size: 1.1rem;
   }
   
-  .blog-image-container {
-    border-radius: 8px;
+  .image-container {
+    height: 200px;
+  }
+  
+  .image-container.expanded {
+    height: 250px;
   }
 }
 
 @media (max-width: 480px) {
-  .blog-header h1 {
-    font-size: 1.8rem;
+  .blog-title {
+    font-size: 1.6rem;
+  }
+  
+  .filter-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .post-title {
+    font-size: 1.2rem;
   }
 }

@@ -3,43 +3,44 @@ import { NavLink } from "react-router-dom";
 
 const HeaderWithNav = () => {
   return (
-    <header className={styles["header-with-nav"]}>
+    <header className={styles["header-container"]}>
       <div className={styles["header-content"]}>
-        <NavLink to="/">
+        <NavLink to="/" className={styles["logo-link"]}>
           <img
             src="/fcma.ico"
             alt="Logo FCMA"
             className={styles["header-logo"]}
           />
+          <div className={styles["header-titles"]}>
+            <h1 className={styles["main-title"]}>
+              Fundación Centro Mariana de Alfabetización
+            </h1>
+          </div>
         </NavLink>
-        <div className={styles["header-message"]}>
-          <h1 className={styles.title}>
-            Fundación Centro Mariana de Alfabetización
-          </h1>
-          <p>
-            Fundación sin ánimo de lucro, dedicada a apoyar académicamente a
-            niños y jóvenes en estado de vulnerabilidad.
-          </p>
-        </div>
-      </div>
 
-      <nav className={styles["navbar"]}>
-        <NavLink to="/" className={styles["nav-link"]}>
-          Inicio
-        </NavLink>
-        <NavLink to="/blog" className={styles["nav-link"]}>
-          Blog
-        </NavLink>
-        <NavLink to="/about" className={styles["nav-link"]}>
-          Acerca de FCMA
-        </NavLink>
-        <NavLink to="/legal" className={styles["nav-link"]}>
-          Legal
-        </NavLink>
-        <NavLink to="/contact" className={styles["nav-link"]}>
-          Contacto
-        </NavLink>
-      </nav>
+        <nav className={styles["navbar"]}>
+          <NavLink to="/" className={styles["nav-link"]} end>
+            <span className={styles["nav-text"]}>Inicio</span>
+            <span className={styles["nav-dot"]}></span>
+          </NavLink>
+          <NavLink to="/blog" className={styles["nav-link"]}>
+            <span className={styles["nav-text"]}>Blog</span>
+            <span className={styles["nav-dot"]}></span>
+          </NavLink>
+          <NavLink to="/about" className={styles["nav-link"]}>
+            <span className={styles["nav-text"]}>Acerca de</span>
+            <span className={styles["nav-dot"]}></span>
+          </NavLink>
+          <NavLink to="/legal" className={styles["nav-link"]}>
+            <span className={styles["nav-text"]}>Legal</span>
+            <span className={styles["nav-dot"]}></span>
+          </NavLink>
+          <NavLink to="/contact" className={styles["nav-link"]}>
+            <span className={styles["nav-text"]}>Contacto</span>
+            <span className={styles["nav-dot"]}></span>
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };

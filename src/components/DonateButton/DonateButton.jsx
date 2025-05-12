@@ -1,16 +1,24 @@
-import React from 'react';
-import styles from './DonateButton.module.css';
+import React from "react";
+import styles from "./DonateButton.module.css";
 
-const DonateButton = () => {
-    return (
-        <a
-        href='/donas'
-        className={styles['donate-button']}
-        aria-label='Donar a la fundación'
-        >
-            <span className='pulse-effect'>❤️🙏</span>Donar ahora! 
-        </a>
-    )
-}
+const MercadoPagoButton = () => {
+  const handleDonate = () => {
+    window.open(
+      "https://link.mercadopago.com.co/fcma",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
-export default DonateButton;
+  return (
+    <button
+      onClick={handleDonate}
+      className={styles["donate-button"]}
+      aria-label="Donar con Mercado Pago"
+    >
+      <span className="pulse-effect">❤️🙏</span> ¡Dona Ahora!
+    </button>
+  );
+};
+
+export default MercadoPagoButton;
